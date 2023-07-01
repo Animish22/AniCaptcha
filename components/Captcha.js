@@ -3,8 +3,9 @@ import {useEffect, useState} from "react";
 export default function Captcha({onChange,captchaKey}) {
   const [selectedIndexes,setSelectedIndexes] = useState([]);
   useEffect(() => {
-    onChange(selectedIndexes);
+    onChange(selectedIndexes); 
   }, [selectedIndexes]);
+  
   useEffect(() => {
     setSelectedIndexes([]);
   }, [captchaKey]);
@@ -16,11 +17,11 @@ export default function Captcha({onChange,captchaKey}) {
       return `/api/captcha-image?index=${index}&key=${captchaKey}`;
     });
   function toggleIndex(index) {
-    setSelectedIndexes(prev => {
-      if (prev.includes(index)) {
-        return prev.filter(v => v !== index);
+    setSelectedIndexes(previndexesArray => {
+      if (previndexesArray.includes(index)) {
+        return previndexesArray.filter(v => v !== index);
       } else {
-        return [...prev, index];
+        return [...previndexesArray, index];
       }
     })
   }

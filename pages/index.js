@@ -39,6 +39,7 @@ export default function Home({defaultCaptchaKey}) {
              onChange={e => setMessage(e.target.value)}
              placeholder="Message" value={message}/>
       <div>
+        {/* //setSelectedIndexes is passed as a prop to be able to pass data from child to parent  as otherwise in rect and next follow a one way data flow that is from parent to child  */}
         <Captcha captchaKey={captchaKey} onChange={setSelectedIndexes} />
       </div>
       <button onClick={send}>Send</button>
